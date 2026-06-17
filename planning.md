@@ -141,12 +141,21 @@ Write out what a full user interaction looks like from start to finish — tool 
 
 **Step 1:**
 <!-- What does the agent do first? Which tool is called? With what input? -->
+FitFindr elps users find secondhand clothing items and figure out how to style them.
+When the user inputs an item, the agent first searches the mock listings dataset using the item description, size, and max price.
 
 **Step 2:**
 <!-- What happens next? What was returned from step 1? What tool is called now? -->
+If listings are found, the top result is stored in session state and passed into the outfit suggestion tool, which uses the user’s wardrobe to recommend a complete outfit. That outfit is then passed into the fit card tool to create a short, shareable caption.
 
 **Step 3:**
 <!-- Continue until the full interaction is complete -->
+If search returns no matches, the agent stops early and tells the user what they can adjust instead of continuing with empty data.
 
 **Final output to user:**
 <!-- What does the user actually see at the end? -->
+User: "I'm looking for a vintage graphic tee under $30, size M. I mostly wear baggy jeans and chunky sneakers."
+Output:
+"Faded Band Tee — $22, Depop, Good condition."
+"Pair this with your wide-leg jeans and platform Docs for a classic 90s grunge look. Roll the sleeves once and tuck the front corner slightly for shape."
+"thrifted this faded band tee off depop for $22 and honestly it was made for my wide-legs 🖤 full look in my stories"
